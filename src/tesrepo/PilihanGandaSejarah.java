@@ -18,6 +18,9 @@ public class PilihanGandaSejarah {
         System.out.println("      SOAL PILIHAN GANDA SEJARAH");
         System.out.println("======================================");
         System.out.println("  Jumlah soal : " + soal.length + "\n");
+        
+        //menu
+        int menu = in.nextInt();
 
         for (int i = 0; i < soal.length; i++) {
             System.out.println(soal[i]);
