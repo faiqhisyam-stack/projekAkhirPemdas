@@ -20,6 +20,31 @@ public class PilihanGandaSejarah {
         System.out.println("  Jumlah soal : " + soal.length + "\n");
         
         //menu
+        /*
+        int pilihan menu
+        switch case
+        1. mahasiswa
+        2. dosen
+        
+        case 1
+        input username
+        cek username
+        valid -> lanjut
+        invalid -> print nama tidak ada
+                   lalu ulang login
+        
+        case 2
+        input usndosen
+        cek usndosen
+        valid -> dosen pengampu
+        invalid -> bukan dosen pengampu
+        input pw khusus dosen (bukan per dosen)
+        true -> masuk
+        else -> ulang
+        
+        
+        
+        */
         int menu = in.nextInt();
 
         for (int i = 0; i < soal.length; i++) {
