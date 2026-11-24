@@ -4,12 +4,21 @@ import java.util.Scanner;
 public class PilihanGandaSejarah {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        //paket soal
         String[] soal = {"1. Kapan Indonesia Merdeka? \nA. 17 Agustus 1945  \nB. 28 Oktober 1928  \nC. 30 September 1965",
             "2. Tanggal berapa hari pahlawan? \nA. 1 Juni \nB. 10 November \nC. 4 Desember",
             "3. Kapan sumpah pemuda terjadi? \nA. 17 Agustus 1945 \nB. 28 Oktober 1945 \nC. 28 Oktober 1928",
             "4. Hari Kelahiran Pancasila adalah \nA. 1 Januari 1988 \nB. 1 Juni 1945\nC. 4 November 1253",
             "5. Kapan Hari Kesaktian Pancasila? \nA. 1 Oktober 1965 \nB. 17 Agustus 2007 \nC. 13 Maret 2008"};
         String[] kunciJawaban = {"A", "B", "C", "B", "A"};
+        //array judul soal (berurutan)
+        String[] judulPaket={
+            "Paket Soal Sejarah", "Paket Soal Matematika", "Paket Soal Pkn"
+        };
+        //Token Soal (berurutan)
+        String[] tokenPaket={
+            "ABCDEG","QWERTY","FGHJKL"
+        };
         
         //List Mahasiswa
         String [] listMahasiswa={
@@ -68,6 +77,46 @@ public class PilihanGandaSejarah {
                         Kerjakan soal
                             ->input token
                         */
+                        do{
+                        System.out.println("======================================");
+                        System.out.println("   M  E  N  U   M A H A S I S W A     ");
+                        System.out.println("======================================");
+                        System.out.println("1. Lihat Jadwal");
+                        System.out.println("2. Kerjakan Soal");
+                        System.out.println("0. Keluar");
+                        System.out.print("Ketik :");
+                        pilihanMenu=in.nextInt();
+                            switch(pilihanMenu){
+                                case 1://lihat jadwal
+                                    int pilihanSubMenu;
+                                    do{
+                                    for(int i=0;i<judulPaket.length;i++){
+                                        System.out.println((i+1)+". "+judulPaket[i]+", Token : "+tokenPaket[i]);
+                                    }
+                                    System.out.println("0. Kembali");
+                                    System.out.println("ketik :");
+                                    pilihanSubMenu =in.nextInt();
+                                    }while(pilihanSubMenu !=0);
+                                    break;
+                                case 2://kerjakan soal (soal yg dah ada)
+                                    /*switch pilih soal
+                                    1. Sejarah
+                                    2. Matematika
+                                    3. Pkn
+                                    
+                                    Setiap case cek token
+                                    jika token benar lanjut pengerjaan soal
+                                    jika token salah:
+                                    -print pesan salah
+                                    -keluar (pilihanSubMenu)
+                                    */
+                                    break;
+                                case 0://keluar
+                                    break;
+                                default:
+                                    System.out.println("Pilihan invalid");
+                            }
+                        }while(pilihanMenu!=0);
                     }
                 break;
 
@@ -93,10 +142,66 @@ public class PilihanGandaSejarah {
                         /* Next menu dosen:
                         edit soal
                             ->Mapel
+                        edit peserta
+                            ->edit array list mahasiswa
                         */
-                    }
+                        do{
+                        System.out.println("======================================");
+                        System.out.println("      M  E  N  U   D  O  S  E  N      ");
+                        System.out.println("======================================");
+                        System.out.println("1. Edit Soal");
+                        System.out.println("2. Edit Token");
+                        System.out.println("2. Edit Peserta");
+                        System.out.println("0. Keluar");
+                        System.out.print("Ketik :");
+                        pilihanMenu=in.nextInt();
+                            switch(pilihanMenu){
+                                case 1://edit soal
+                                    /*
+                                    Cetak daftar soal
+                                    switch case pilihan soal
+                                    1. Sejarah
+                                    2. Matematika
+                                    3. Pkn
+                                    
+                                    Setiap case, tampilkan semua soal dalam paket (indeks+1 = nomor soal)
+                                    tampilkan format penggantian soal
+                                    [soal]\n[A. opsi a]\n[B. opsi B]\n[C. Opsi C]
+                                    pilih indeks untuk diganti
+                                    */
+                                    break;
+                                case 2://edit token
+                                    /*
+                                    switch pilihan paket soal
+                                    1. Sejarah
+                                    2. Matematika
+                                    3. Pkn
+                                    
+                                    Setiap case langsung merujuk pada indeks array token
+                                    -input token baru
+                                    -assignment token baru ke token lama
+                                    */
+                                    break;
+                                case 3:
+                                    /*
+                                    switch pilihan paket soal
+                                    1. Sejarah
+                                    2. Matematika
+                                    3. Pkn
+                                    
+                                    setiap case tampilkan semua peserta
+                                    pilih indeks untuk di re assignment
+                                    */
+                                    break;
+                                case 0://keluar
+                                    break;
+                                default:
+                                    System.out.println("Pilihan invalid");
+                            }
+                        }while(pilihanMenu!=0);
+                        }
                 break;
-            default:
+                default:
         }
         }while(pilihanMenu !=0);
         /*
