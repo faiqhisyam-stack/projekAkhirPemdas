@@ -10,6 +10,18 @@ public class PilihanGandaSejarah {
             "4. Hari Kelahiran Pancasila adalah \nA. 1 Januari 1988 \nB. 1 Juni 1945\nC. 4 November 1253",
             "5. Kapan Hari Kesaktian Pancasila? \nA. 1 Oktober 1965 \nB. 17 Agustus 2007 \nC. 13 Maret 2008"};
         String[] kunciJawaban = {"A", "B", "C", "B", "A"};
+        
+        //List Mahasiswa
+        String [] listMahasiswa={
+            "Adi","Edo","Lani","Siti"
+        };
+        
+        //List Dosen
+        String[] listDosen={
+          "Ali","Raib","Seli","Gill"  
+        };
+        String passwordDosen="12345678";
+        
         String pilihan = "";
         int poin = 0;
 
@@ -17,15 +29,77 @@ public class PilihanGandaSejarah {
         System.out.println("======================================");
         System.out.println("      SOAL PILIHAN GANDA SEJARAH");
         System.out.println("======================================");
-        System.out.println("  Jumlah soal : " + soal.length + "\n");
+        //System.out.println("  Jumlah soal : " + soal.length + "\n");
         
         //menu
-        /*
-        int pilihan menu
-        switch case
-        1. mahasiswa
-        2. dosen
+        int pilihanMenu=3;
         
+        do{//loop menu (yg diatasi : apabila login gagal kembali ke sini
+        System.out.println("======================================");
+        System.out.println("              M  E  N  U              ");
+        System.out.println("======================================");
+        System.out.println("1. Login Mahasiswa");
+        System.out.println("2. Login Dosen");
+        System.out.println("0. Keluar");
+        System.out.print("Ketik :");
+        pilihanMenu=in.nextInt();
+        in.nextLine();
+        switch(pilihanMenu){
+            case 1://mahasiswa
+                System.out.println("Masukkan Nama :");
+                String namaLogin=in.nextLine();
+                boolean statusLogin=false;
+                //cek valid
+                        for (String listMahasiswa1 : listMahasiswa) {
+                            if (namaLogin.equalsIgnoreCase(listMahasiswa1)) {
+                                statusLogin=true;
+                                System.out.println("Login Berhasil");
+                                break;
+                            }
+                        }
+                            if(statusLogin==false){
+                            System.out.println("Nama mahasiswa tidak terdaftar");
+                            }
+                    
+                    if (statusLogin==true){
+                        /* Next menu mahasiswa:
+                        cek jadwal
+                            ->Mapel + token
+                        Kerjakan soal
+                            ->input token
+                        */
+                    }
+                break;
+
+            case 2://dosen
+                System.out.println("Masukkan Nama Dosen :");
+                namaLogin=in.nextLine();
+                System.out.println("Masukkan Password Dosen :");
+                String passwordLogin=in.nextLine();
+                statusLogin=false;
+                //cek valid
+                        for (String listDosen1 : listDosen) {
+                            if (namaLogin.equalsIgnoreCase(listDosen1)&&passwordLogin.equals(passwordDosen)) {
+                                statusLogin=true;
+                                System.out.println("Login Berhasil");
+                                break;
+                            }
+                        }
+                            if(statusLogin==false){
+                            System.out.println("Nama dosen tidak terdaftar atau password salah");
+                            }
+                    
+                    if (statusLogin==true){
+                        /* Next menu dosen:
+                        edit soal
+                            ->Mapel
+                        */
+                    }
+                break;
+            default:
+        }
+        }while(pilihanMenu !=0);
+        /*
         case 1
         input username
         cek username
