@@ -86,6 +86,7 @@ public class PilihanGandaSejarah {
                         Kerjakan soal
                             ->input token
                         */
+                        int menuMahasiswa;
                         do{
                         System.out.println("======================================");
                         System.out.println("   M  E  N  U   M A H A S I S W A     ");
@@ -94,8 +95,8 @@ public class PilihanGandaSejarah {
                         System.out.println("2. Kerjakan Soal");
                         System.out.println("0. Keluar");
                         System.out.print("Ketik :");
-                        pilihanMenu=in.nextInt();
-                            switch(pilihanMenu){
+                        menuMahasiswa=in.nextInt();
+                            switch(menuMahasiswa){
                                 case 1://lihat jadwal
                                 int pilihanSubMenu;
                                 do{
@@ -177,7 +178,7 @@ public class PilihanGandaSejarah {
                                 default:
                                     System.out.println("Pilihan invalid");
                             }
-                        }while(pilihanMenu!=0);
+                        }while(menuMahasiswa!=0);
                     }
                 break;
 
@@ -200,7 +201,7 @@ public class PilihanGandaSejarah {
                 }
 
                 if (statusLogin == true) {
-                    int menuDosen; // variabel sendiri agar keluar dari menu dosen tidak menutup program
+                    int menuDosen; 
                     do {
                         System.out.println("======================================");
                         System.out.println("      M  E  N  U   D  O  S  E  N      ");
@@ -222,7 +223,6 @@ public class PilihanGandaSejarah {
                                 int pilihanEdit = in.nextInt();
                                 in.nextLine();
 
-                                //pilih paket sekali saja, tidak perlu 3 blok yang sama
                                 String[] soalDipilih;
                                 String[] kunciDipilih;
                                 switch (pilihanEdit) {
@@ -268,8 +268,8 @@ public class PilihanGandaSejarah {
                                 System.out.print("Opsi C : ");
                                 String c = in.nextLine();
                                 System.out.print("Kunci jawaban (A/B/C) : ");
-                                String kunci = in.nextLine().trim().toUpperCase();
-                                if (!kunci.equals("A") && !kunci.equals("B") && !kunci.equals("C")) {
+                                String kunci = in.nextLine();
+                                if (!kunci.equalsIgnoreCase("A") && !kunci.equalsIgnoreCase("B") && !kunci.equalsIgnoreCase("C")) {
                                     System.out.println("Kunci harus A, B, atau C. Perubahan dibatalkan");
                                     break;
                                 }
@@ -368,11 +368,7 @@ public class PilihanGandaSejarah {
         input pw khusus dosen (bukan per dosen)
         true -> masuk
         else -> ulang
-        
-        
-        
-         */
-        int menu = in.nextInt();
 
+         */
     }
 }
