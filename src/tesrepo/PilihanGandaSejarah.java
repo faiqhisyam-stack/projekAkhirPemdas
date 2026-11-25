@@ -11,9 +11,17 @@ public class PilihanGandaSejarah {
             "4. Hari Kelahiran Pancasila adalah \nA. 1 Januari 1988 \nB. 1 Juni 1945\nC. 4 November 1253",
             "5. Kapan Hari Kesaktian Pancasila? \nA. 1 Oktober 1965 \nB. 17 Agustus 2007 \nC. 13 Maret 2008"};
         String[] kunciJawaban = {"A", "B", "C", "B", "A"};
-        String[] soalMatematika = {};
-        String[] KunciJawabanMatematika = {"A", "B", "C", "B", "A"};
-        String[] soalPkn = {};
+        String[] soalMatematika = {"1. Aldo pergi kepasar membeli apel 2, Dikasih lima. Berapa apel yang mbul miliki? \nA. 0 \nB. 3 \nC. 1000",
+        "2.Diketahui Seekor kucing mengejar tikus yang berjarak 10 meter di depannya. Setiap 1 detik, kucing melompat sejauh 3 meter, sedangkan tikus berlari sejauh 2 meter. Berapa detik yang dibutuhkan kucing untuk menangkap tikus? \nA. 3 detik \nB. 10 detik \nC. 5 detik",
+        "3. Kamu punya 1 loyang kue bulat. Kamu mengirisnya dengan 3 kali sayatan lurus tanpa memindahkan potongan kue. Berapa jumlah potongan kue maksimal yang bisa kamu dapatkan? \nA. 7 potong \nB. 8 potong \nC. 9 potong",
+        "4. Dari angka 1 sampai 100, berapa kali angka 9 muncul? \nA. 9 kali \nB. 11 kali \nC. 20 kali",
+        "5. Di dalam laci gelap gulita ada 10 pasang sepatu hitam dan 10 pasang sepatu putih yang tercampur acak (semua ukurannya sama). Berapa minimal sepatu yang harus kamu ambil agar pasti mendapatkan sepasang sepatu yang cocok (kiri dan kanan dengan warna yang sama)? \nA. 21 pasang \nB. 30 pasang \nC. 19 pasang "};
+        String[] KunciJawabanMatematika = {"A", "B", "A", "C", "A"};
+        String[] soalPkn = {"1. Dalam kedudukannya sebagai sumber dari segala sumber hukum negara, bagaimana hubungan antara Pancasila dengan pasal-pasal dalam UUD NRI Tahun 1945? \nA.Pancasila menjiwai dan dijabarkan dalam pasal-pasal UUD 1945. \nB. Pasal-pasal UUD 1945 kedudukannya lebih tinggi karena bersifat operasional. \nC. Pancasila hanya berlaku pada Pembukaan UUD 1945, sedangkan batang tubuhnya berdiri sendiri.",
+        "2. Amandemen UUD NRI Tahun 1945 mengubah kedudukan Majelis Permusyawaratan Rakyat (MPR). Pernyataan manakah yang tepat mengenai kedudukan MPR setelah amandemen? \nA. MPR tetap menjadi lembaga tertinggi negara pemegang kedaulatan penuh. \nB. MPR menjadi lembaga negara yang kedudukannya sejajar dengan Presiden dan Mahkamah Konstitusi.\nC. MPR berwenang mengangkat dan memberhentikan Presiden secara langsung kapan saja.",
+        "3. Seorang WNA yang telah tinggal di Indonesia selama 5 tahun berturut-turut (atau 10 tahun tidak berturut-turut) ingin mengajukan kewarganegaraan Indonesia melalui jalur naturalisasi biasa. Syarat substantif apa yang wajib ia penuhi? \nA. Memiliki surat keterangan bebas pajak dari negara asalnya saja. \nB. Menikah dengan warga negara Indonesia minimal selama 3 tahun. \nC. Dapat berbahasa Indonesia serta mengakui dasar negara Pancasila dan UUD NRI Tahun 1945.",
+        "4. Dalam pembagian kekuasaan secara horizontal di Indonesia pasca-amandemen UUD 1945, Badan Pemeriksa Keuangan (BPK) menjalankan kekuasaan... \nA. Konstitutif \nB. Eksaminatif \nC.Yudikatif",
+        "5. Pelimpahan sebagian urusan pemerintahan yang menjadi kewenangan Pemerintah Pusat kepada Gubernur sebagai wakil Pemerintah Pusat dan/atau kepada instansi vertikal di wilayah tertentu disebut asas... \nA. Dekonsentrasi \nB. Desentralisasi \nC. Tugas pembantuan"};
         String[] KunciJawabanPkn = {"A", "B", "C", "B", "A"};
         //array judul soal (berurutan)
         String[] judulPaket={
@@ -92,55 +100,69 @@ public class PilihanGandaSejarah {
                         pilihanMenu=in.nextInt();
                             switch(pilihanMenu){
                                 case 1://lihat jadwal
-                                    int pilihanSubMenu;
-                                    do{
+                                int pilihanSubMenu;
+                                do{
                                     for(int i=0;i<judulPaket.length;i++){
                                         System.out.println((i+1)+". "+judulPaket[i]+", Token : "+tokenPaket[i]);
                                     }
                                     System.out.println("0. Kembali");
                                     System.out.println("ketik :");
                                     pilihanSubMenu =in.nextInt();
-                                    }while(pilihanSubMenu !=0);
-                                    break;
+                                }while(pilihanSubMenu !=0);
+                                break;
                                 case 2://kerjakan soal (soal yg dah ada)
-                                    for(int i=0;i<judulPaket.length;i++) {
-                                        System.out.println((i+1)+ ". " + judulPaket[i]);
-                                    }
-                                    System.out.println("ketik :");
-                                    pilihanSubMenu = in.nextInt();
-                                    in.nextLine();
-                                    switch (pilihanSubMenu) {
-                                        case 1: //sejarah
-                                            System.out.println("Masukkan Token :");
-                                            String cekToken = in.nextLine();
-                                            if (cekToken.equals(tokenPaket[0])){
-                                              for (int i = 0; i < soal.length; i++) {
-                                                System.out.println(soal[i]);
-                                                System.out.print("Pilihan Anda: ");
-                                                pilihan = in.next();
+                        
+                                for(int i=0;i<judulPaket.length;i++) {
+                                    System.out.println((i+1)+ ". " + judulPaket[i]);
+                                }
+                                System.out.println("ketik :");
+                                pilihanSubMenu = in.nextInt();
+                                in.nextLine();
+                                String[] soalDipilih;
+                                String[] kunciDipilih;
+                                       switch (pilihanSubMenu) {
+                                           case 1: //sejarah
+                                               soalDipilih = soal;
+                                               kunciDipilih = kunciJawaban;
+                                               break;
+                                           case 2: //matematika
+                                               soalDipilih = soalMatematika;
+                                               kunciDipilih = KunciJawabanMatematika;
+                                               break;
+                                           case 3: //pkn
+                                               soalDipilih = soalPkn;
+                                               kunciDipilih = KunciJawabanPkn;
+                                               break;
+                                           default:
+                                               System.out.println("INPUTAN INVALID!!!");
+                                               continue;
+                                       }
+                                       System.out.println("Masukkan Token :");
+                                       String cekToken = in.nextLine();
+                                       if (cekToken.equals(tokenPaket[pilihanSubMenu - 1])) {
+                                           poin = 0; //reset poin tiap mulai kuis
+                                           for (int i = 0; i < soalDipilih.length; i++) {
+                                               System.out.println(soalDipilih[i]);
+                                               System.out.print("Pilihan Anda: ");
+                                               pilihan = in.next();
 
-                                                if (pilihan.equalsIgnoreCase(kunciJawaban[i])) {
-                                                    System.out.println("Benar!");
-                                                    poin += 1;
-                                                } else {
-                                                    System.out.println("Salah!");
-                                                }
-                                                System.out.println();
-                                            }
-
-                                            int nilai = (poin * 100) / soal.length;
-                                            System.out.println("Jumlah jawaban benar: " + poin);
-                                            System.out.println("Nilai: " + nilai);  
-                                            } 
-                                            break;
-                                        case 2 : // matematika
-                                            System.out.println("Masukkan Token");
-                                            break;
-                                        case 3 : // pkn
-                                            break;
-                                        default:
-                                            System.out.println("INPUTAN INVALID!!!");
-                                    }
+                                               if (pilihan.equalsIgnoreCase(kunciDipilih[i])) {
+                                                   System.out.println("Benar!");
+                                                   poin += 1;
+                                               } else {
+                                                   System.out.println("Salah!");
+                                               }
+                                               System.out.println();
+                                           }
+                                           int nilai = (poin * 100) / soalDipilih.length;
+                                           System.out.println("Jumlah jawaban benar: " + poin);
+                                           System.out.println("Nilai: " + nilai);
+                                       } else {
+                                           System.out.println("Token salah!");
+                                       }
+                                       /*switch pilih soal
+                                       ...
+                                       */
                                     /*switch pilih soal
                                     1. Sejarah
                                     2. Matematika
