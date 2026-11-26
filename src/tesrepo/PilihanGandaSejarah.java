@@ -63,7 +63,7 @@ public class PilihanGandaSejarah {
         pilihanMenu = in.nextLine();
         switch(pilihanMenu){
             case "1"://mahasiswa
-                System.out.println("Masukkan Nama :");
+                System.out.print("Masukkan Nama :");
                 String namaLogin=in.nextLine();
                 boolean statusLogin=false;
                 //cek valid
@@ -89,39 +89,39 @@ public class PilihanGandaSejarah {
                         System.out.println("0. Keluar");
                         System.out.print("Ketik :");
                         menuMahasiswa = in.nextLine();
-                            switch(menuMahasiswa){
+                        String pilihanSubMenu = "";    
+                        switch(menuMahasiswa){
                                 case "1"://lihat jadwal
-                                    int pilihanSubMenu;
-                                    do{
-                                        for(int i=0;i<judulPaket.length;i++){
-                                            System.out.println((i+1)+". "+judulPaket[i]+", Token : "+tokenPaket[i]);
-                                        }
-                                        System.out.println("0. Kembali");
-                                        System.out.println("ketik :");
-                                        pilihanSubMenu =in.nextInt();
-                                    }while(pilihanSubMenu !=0);
+                                    for(int i=0;i<judulPaket.length;i++){
+                                        System.out.println((i+1)+". "+judulPaket[i]+", Token : "+tokenPaket[i]);
+                                    }
+                                    System.out.print("Tekan Enter untuk kembali...");
+                                    in.nextLine();
                                     break;
                                 case "2"://kerjakan soal (soal yg dah ada)
                                     for(int i=0;i<judulPaket.length;i++) {
                                         System.out.println((i+1)+ ". " + judulPaket[i]);
                                     }
-                                    System.out.println("ketik :");
-                                    pilihanSubMenu = in.nextInt();
-                                    in.nextLine();
+                                    System.out.print("ketik :");
+                                    pilihanSubMenu = in.nextLine();
                                     String[] soalDipilih;
                                     String[] kunciDipilih;
+                                    int indeks;
                                        switch (pilihanSubMenu) {
-                                           case 1: //sejarah
+                                           case "1": //sejarah
                                                soalDipilih = soalSejarah;
                                                kunciDipilih = kunciJawabanSejarah;
+                                               indeks = 0;
                                                break;
-                                           case 2: //matematika
+                                           case "2": //matematika
                                                soalDipilih = soalMatematika;
                                                kunciDipilih = kunciJawabanMatematika;
+                                               indeks = 1;
                                                break;
-                                           case 3: //pkn
+                                           case "3": //pkn
                                                soalDipilih = soalPkn;
                                                kunciDipilih = kunciJawabanPkn;
+                                               indeks = 2;
                                                break;
                                            default:
                                                System.out.println("INPUTAN INVALID!!!");
@@ -129,12 +129,12 @@ public class PilihanGandaSejarah {
                                        }
                                        System.out.println("Masukkan Token :");
                                        String cekToken = in.nextLine();
-                                       if (cekToken.equals(tokenPaket[pilihanSubMenu - 1])) {
+                                       if (cekToken.equals(tokenPaket[indeks])) {
                                            poin = 0; //reset poin tiap mulai kuis
                                            for (int i = 0; i < soalDipilih.length; i++) {
                                                System.out.println(soalDipilih[i]);
                                                System.out.print("Pilihan Anda: ");
-                                               pilihan = in.next();
+                                               pilihan = in.nextLine();
 
                                                if (pilihan.equalsIgnoreCase(kunciDipilih[i])) {
                                                    System.out.println("Benar!");
@@ -150,20 +150,6 @@ public class PilihanGandaSejarah {
                                        } else {
                                            System.out.println("Token salah!");
                                        }
-                                       /*switch pilih soal
-                                       ...
-                                       */
-                                    /*switch pilih soal
-                                    1. Sejarah
-                                    2. Matematika
-                                    3. Pkn
-                                    
-                                    Setiap case cek token
-                                    jika token benar lanjut pengerjaan soal
-                                    jika token salah:
-                                    -print pesan salah
-                                    -keluar (pilihanSubMenu)
-                                    */
                                     break;
                                 case "0"://keluar
                                     break;
@@ -283,13 +269,9 @@ public class PilihanGandaSejarah {
                                 }
 
                                 System.out.print("Token baru (kosongkan untuk batal) : ");
-                                String tokenBaru = in.nextLine().trim();
+                                String tokenBaru = in.nextLine();
                                 if (tokenBaru.equals("")) {
                                     System.out.println("Dibatalkan");
-                                    break;
-                                }
-                                if (tokenBaru.contains(" ")) {
-                                    System.out.println("Token tidak boleh mengandung spasi");
                                     break;
                                 }
 
@@ -321,7 +303,7 @@ public class PilihanGandaSejarah {
                                 }
 
                                 System.out.print("Nama baru (kosongkan untuk batal) : ");
-                                String namaBaru = in.nextLine().trim();
+                                String namaBaru = in.nextLine();
                                 if (namaBaru.equals("")) {
                                     System.out.println("Dibatalkan");
                                     break;
