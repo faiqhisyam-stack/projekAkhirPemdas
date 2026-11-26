@@ -46,7 +46,7 @@ public class PilihanGandaSejarah {
 
         //List Mahasiswa
         String[] listMahasiswa = {
-            "Adi", "Edo", "Lani", "Siti"
+            "Adi", "Edo", "Lani", "Siti", "Mbul", "Aldo", "Hisyam"
         };
 
         //List Dosen
