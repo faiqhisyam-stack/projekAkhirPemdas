@@ -50,7 +50,7 @@ public class PilihanGandaSejarah {
         int poin = 0;
         
         //menu
-        int pilihanMenu=3;
+        String pilihanMenu = "";
         
         do{//loop menu (yg diatasi : apabila login gagal kembali ke sini
         System.out.println("======================================");
@@ -59,11 +59,10 @@ public class PilihanGandaSejarah {
         System.out.println("1. Login Mahasiswa");
         System.out.println("2. Login Dosen");
         System.out.println("0. Keluar");
-        System.out.print("Ketik :");
-        pilihanMenu=in.nextInt();
-        in.nextLine();
+        System.out.print("Ketik : ");
+        pilihanMenu = in.nextLine();
         switch(pilihanMenu){
-            case 1://mahasiswa
+            case "1"://mahasiswa
                 System.out.println("Masukkan Nama :");
                 String namaLogin=in.nextLine();
                 boolean statusLogin=false;
@@ -80,13 +79,7 @@ public class PilihanGandaSejarah {
                             }
                     
                     if (statusLogin==true){
-                        /* Next menu mahasiswa:
-                        cek jadwal
-                            ->Mapel + token
-                        Kerjakan soal
-                            ->input token
-                        */
-                        int menuMahasiswa;
+                        String menuMahasiswa = "";
                         do{
                         System.out.println("======================================");
                         System.out.println("   M  E  N  U   M A H A S I S W A     ");
@@ -95,29 +88,28 @@ public class PilihanGandaSejarah {
                         System.out.println("2. Kerjakan Soal");
                         System.out.println("0. Keluar");
                         System.out.print("Ketik :");
-                        menuMahasiswa=in.nextInt();
+                        menuMahasiswa = in.nextLine();
                             switch(menuMahasiswa){
-                                case 1://lihat jadwal
-                                int pilihanSubMenu;
-                                do{
-                                    for(int i=0;i<judulPaket.length;i++){
-                                        System.out.println((i+1)+". "+judulPaket[i]+", Token : "+tokenPaket[i]);
+                                case "1"://lihat jadwal
+                                    int pilihanSubMenu;
+                                    do{
+                                        for(int i=0;i<judulPaket.length;i++){
+                                            System.out.println((i+1)+". "+judulPaket[i]+", Token : "+tokenPaket[i]);
+                                        }
+                                        System.out.println("0. Kembali");
+                                        System.out.println("ketik :");
+                                        pilihanSubMenu =in.nextInt();
+                                    }while(pilihanSubMenu !=0);
+                                    break;
+                                case "2"://kerjakan soal (soal yg dah ada)
+                                    for(int i=0;i<judulPaket.length;i++) {
+                                        System.out.println((i+1)+ ". " + judulPaket[i]);
                                     }
-                                    System.out.println("0. Kembali");
                                     System.out.println("ketik :");
-                                    pilihanSubMenu =in.nextInt();
-                                }while(pilihanSubMenu !=0);
-                                break;
-                                case 2://kerjakan soal (soal yg dah ada)
-                        
-                                for(int i=0;i<judulPaket.length;i++) {
-                                    System.out.println((i+1)+ ". " + judulPaket[i]);
-                                }
-                                System.out.println("ketik :");
-                                pilihanSubMenu = in.nextInt();
-                                in.nextLine();
-                                String[] soalDipilih;
-                                String[] kunciDipilih;
+                                    pilihanSubMenu = in.nextInt();
+                                    in.nextLine();
+                                    String[] soalDipilih;
+                                    String[] kunciDipilih;
                                        switch (pilihanSubMenu) {
                                            case 1: //sejarah
                                                soalDipilih = soalSejarah;
@@ -173,16 +165,16 @@ public class PilihanGandaSejarah {
                                     -keluar (pilihanSubMenu)
                                     */
                                     break;
-                                case 0://keluar
+                                case "0"://keluar
                                     break;
                                 default:
                                     System.out.println("Pilihan invalid");
                             }
-                        }while(menuMahasiswa!=0);
+                        } while(!menuMahasiswa.equals("0"));
                     }
                 break;
 
-            case 2://dosen
+            case "2"://dosen
                 System.out.println("Masukkan Nama Dosen :");
                 namaLogin = in.nextLine();
                 System.out.println("Masukkan Password Dosen :");
@@ -201,7 +193,7 @@ public class PilihanGandaSejarah {
                 }
 
                 if (statusLogin == true) {
-                    int menuDosen; 
+                    String menuDosen = ""; 
                     do {
                         System.out.println("======================================");
                         System.out.println("      M  E  N  U   D  O  S  E  N      ");
@@ -211,11 +203,10 @@ public class PilihanGandaSejarah {
                         System.out.println("3. Edit Peserta");
                         System.out.println("0. Keluar");
                         System.out.print("Ketik : ");
-                        menuDosen = in.nextInt();
-                        in.nextLine();
+                        menuDosen = in.nextLine();
 
                         switch (menuDosen) {
-                            case 1: { //edit soal
+                            case "1": { //edit soal
                                 for (int i = 0; i < judulPaket.length; i++) {
                                     System.out.println((i + 1) + ". " + judulPaket[i]);
                                 }
@@ -279,7 +270,7 @@ public class PilihanGandaSejarah {
                                 System.out.println("Soal berhasil diganti");
                                 break;
                             }
-                            case 2: { //edit token
+                            case "2": { //edit token
                                 for (int i = 0; i < judulPaket.length; i++) {
                                     System.out.println((i + 1) + ". " + judulPaket[i] + ", Token : " + tokenPaket[i]);
                                 }
@@ -317,7 +308,7 @@ public class PilihanGandaSejarah {
                                 System.out.println("Token berhasil diganti");
                                 break;
                             }
-                            case 3: { //edit peserta
+                            case "3": { //edit peserta
                                 for (int m = 0; m < listMahasiswa.length; m++) {
                                     System.out.println((m + 1) + ". " + listMahasiswa[m]);
                                 }
@@ -340,35 +331,20 @@ public class PilihanGandaSejarah {
                                 System.out.println("Peserta berhasil diganti");
                                 break;
                             }
-                            case 0://keluar
+                            case "0"://keluar
                                 System.out.println("Keluar dari menu dosen");
                                 break;
                             default:
                                 System.out.println("Pilihan invalid");
                         }
-                    } while (menuDosen != 0);
+                    } while (!menuDosen.equals("0"));
                 }
                 break;
-                default:
+            case "0":
+                break;
+            default:
+                System.out.println("Input invalid.");
             }
-        } while (pilihanMenu != 0);
-        /*
-        case 1
-        input username
-        cek username
-        valid -> lanjut
-        invalid -> print nama tidak ada
-                   lalu ulang login
-        
-        case 2
-        input usndosen
-        cek usndosen
-        valid -> dosen pengampu
-        invalid -> bukan dosen pengampu
-        input pw khusus dosen (bukan per dosen)
-        true -> masuk
-        else -> ulang
-
-         */
+        } while (!pilihanMenu.equals("0"));
     }
 }
