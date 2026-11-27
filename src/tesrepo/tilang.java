@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class tilang {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        stnk menu = new stnk();
 
         stnk[] dataStnk = {
             new stnk("N1234AL", "Beat"),
@@ -12,24 +13,28 @@ public class tilang {
             new stnk("N3412PR", "KLX")
         };
 
-        System.out.print("Masukkan nopol: ");
-        String cekNopol = in.next();
-        System.out.print("Masukkan jenis kendaraan: ");
-        String cekJenis = in.next();
-
-        boolean valid = false;
-        
-        for (int i = 0; i < dataStnk.length; i++) {
-            if (dataStnk[i].cocok(cekNopol, cekJenis)) {
-                valid = true;
-                break;
+        String pilihanUser = "";
+        do {
+            pilihanUser = menu.tampilkanMenu(in);
+            switch (pilihanUser) {
+                case "1":
+                    menu.cekStnk(in, dataStnk);
+                    break;
+                case "2":
+                    // tambah stnk
+                    break;
+                case "3":
+                    // lihat semua
+                    break;
+                case "4":
+                    //catat tilang
+                    break;
+                case "0":
+                    System.out.println("Keluar...");
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid.");
             }
-        }
-
-        if (valid) {
-            System.out.println("Data valid, kendaraan aman!");
-        } else {
-            System.out.println("Data tidak sesuai atau tidak ada!");
-        }
+        } while (!pilihanUser.equals("0"));
     }
 }
