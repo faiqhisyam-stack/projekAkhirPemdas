@@ -6,25 +6,28 @@ public class tilang {
         Scanner in = new Scanner(System.in);
         stnk menu = new stnk();
 
-        stnk[] dataStnk = {
-            new stnk("N1234AL", "Beat"),
-            new stnk("N5678AD", "Vario"),
-            new stnk("N0987AU", "Fazzio"),
-            new stnk("N3412PR", "KLX")
-        };
+        stnk[] dataStnk = new stnk[67];
+        dataStnk[0] = new stnk("N1234AL", "Beat");
+        dataStnk[1] = new stnk("N5678AD", "Vario");
+        dataStnk[2] = new stnk("N0987AU", "Fazzio");
+        dataStnk[3] = new stnk("N3333PR", "KLX");
+        int jumlah = 4;
 
         String pilihanUser = "";
         do {
             pilihanUser = menu.tampilkanMenu(in);
             switch (pilihanUser) {
                 case "1":
-                    menu.cekStnk(in, dataStnk);
+                    // cek stnk
+                    menu.cekStnk(in, dataStnk, jumlah);
                     break;
                 case "2":
-                    // tambah stnk
+                    // edit stnk
+                    jumlah = menu.editStnk(in, dataStnk, jumlah);
                     break;
                 case "3":
                     // lihat semua
+                    menu.tampilkanStnk(in, dataStnk, jumlah);
                     break;
                 case "4":
                     //catat tilang
